@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetter App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .city {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .separator {
+            margin: 10px 0;
+            border-top: 1px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wetterinformationen für Städte</h1>
+    {% for city in city_weather %}
+    <div class="city">
+        <h2>In {{ city.name }}:</h2>
+        <p>Aktuelle Temperatur: {{ city.temp }}°C</p>
+        <p>Höchsttemperatur: {{ city.temp_max }}°C</p>
+        <p>Tiefsttemperatur: {{ city.temp_min }}°C</p>
+        <p>Wetterzustand: {{ city.weather_description }}</p>
+        <p>Aktuelle Uhrzeit: {{ city.current_time }}</p>
+    </div>
+    <div class="separator"></div>
+    {% endfor %}
+</body>
+</html>
